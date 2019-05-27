@@ -1,0 +1,43 @@
+.product-container {
+  background: #f1802d;
+  position: relative;
+  overflow: hidden;
+  height: 500px;
+  width: 100%;
+  background-size: cover;
+  margin: 0 auto;
+}
+
+.product-container img {
+  min-height:100%;
+  min-width: 100%;
+  object-fit: cover;
+}
+
+
+.product-description {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  font-size: 18px;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  background-color: rgba(0,0,0,0.6);
+  text-align: right;
+  padding: 0.2em 0.4em 0.2em;
+  transform: translateY(101%);
+  transition: transform 200ms ease-in-out;
+}
+
+.product-container:hover .product-description {
+  transform: translateY(0);
+}
+
+.recipe-row {
+  outline: none;
+  cursor: pointer;
+}

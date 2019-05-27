@@ -1,0 +1,61 @@
+.jumbotron {
+  padding-top: 20%;
+  padding-bottom: 20%;
+  position: relative;
+  background: url("https://www.magazynvip.pl/wp-content/uploads/2017/12/Fotolia_57089950_S-750x423.jpg") no-repeat center center;
+  background-size: cover;
+  margin: 0;
+}
+
+.navbar {
+  margin-bottom: 0;
+}
+
+@media (min-width: 992px) {
+  .navbar {
+    min-height: 50px;
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+}
+
+nav .navbar-nav li a{
+  color: #212529 !important;
+}
+
+nav .navbar-nav li a:hover{
+  color: #f1802d !important;
+}
+
+.navbar-brand {
+  transition: transform .2s;
+}
+.navbar-brand:hover{
+  transform: scale(1.1)
+}
+
+.bg-dark {
+  background-color: transparent !important;
+}
+
+.btn-secondary {
+  border-radius: 5px;
+  padding: 10px 22px;
+  font-size: 21px;
+  text-transform: uppercase;
+  margin: 22px;
+  border: medium #f1802d;
+  background-color: #f1802d;
+  color: white;
+}
+
+.btn-secondary:hover,
+.btn-secondary:focus {
+  border-color: #DC660F;
+  background-color: #DC660F;
+  color: white;
+}

@@ -1,0 +1,44 @@
+.btn-secondary {
+  border-radius: 5px;
+  padding: 10px 22px;
+  font-size: 21px;
+  text-transform: uppercase;
+  margin: 22px;
+  border: medium #f1802d;
+  background-color: #f1802d;
+  color: white;
+}
+
+.btn-secondary:hover,
+.btn-secondary:focus {
+  border-color: #DC660F;
+  background-color: #DC660F;
+  color: white;
+}
+
+h3 {
+  text-transform: uppercase;
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 30px;
+}
+
+.heading-underline {
+  background-color: #f1802d;
+  border-radius: 5px;
+  width: 60px;
+  height: 5px;
+  margin: 0 auto 30px;
+}
+
+.fixed {
+  z-index: -1;
+  background: url(../../assets/img/tlo.jpg) no-repeat fixed;
+  background-size: cover;
+}
+
+.dark {
+  background-color: rgba(0, 0, 0, 0.75);
+  color: white;
+  padding: 112px 32px;
+}

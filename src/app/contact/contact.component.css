@@ -1,0 +1,124 @@
+.contact-header {
+  background-color: #123740!important;
+  min-height: 400px;
+  color: white;
+  padding-top: 80px;
+}
+
+h3.heading {
+  font-size: 32px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 30px;
+}
+
+.heading-underline {
+  width: 60px;
+  height: 5px;
+  background-color: #f1802d;
+  border-radius: 5px;
+  margin: 0 auto 32px;
+}
+
+.contact-container {
+  box-shadow: 0 0 50px 0 rgba(0,0,0,.2);
+  background: #fff;
+  position: relative;
+  margin: -200px 0 80px;
+  z-index: 100;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.contact-container h5 {
+  font-size: 24px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  font-weight: 700;
+}
+
+.sidebar {
+  min-width: 50px;
+  text-align: center;
+  background: #f1802d;
+  color: #fff;
+  padding: 50px 10px 50px 10px;
+}
+
+.sidebar .detail {
+  margin-bottom: 30px;
+}
+
+.sidebar .detail p {
+  margin: 0;
+  padding-left: 18px;
+  font-size: 16px;
+  font-weight: 200;
+  color: #fff;
+  text-decoration: none;
+}
+
+.form-container {
+  padding: 30px 20px 50px 50px;
+}
+
+.btn-main {
+  margin-left: 20px;
+  border: 2px solid #f1802d;
+  background-color: #f1802d;
+  color: white;
+  cursor: pointer;
+  text-transform: uppercase;
+  border-radius: 20px;
+  text-space: 7px;
+  padding: 10px 30px 8px;
+}
+
+.btn-main:hover {
+  background-color: white;
+  color: #f1802d;
+}
+
+.btn-reset {
+  margin-left: 20px;
+  border: 2px solid #a9afb3;
+  color: #a9afb3;
+  background: 0 0;
+  text-transform: uppercase;
+  border-radius: 20px;
+  text-space: 7px;
+  padding: 10px 30px 8px;
+}
+
+.btn-reset:hover {
+  border-color: transparent !important;
+  background-color: #123740;
+  color: white;
+}
+
+.form-control:focus {
+  box-shadow: none ;
+}
+
+.has-float-label input:focus,
+.has-float-label textarea:focus,
+.has-float-label select:focus {
+  border-color: #f1802d;
+}
+
+.has-float-label.select-label label{
+  top:.9em;
+}
+select {
+  font-size: 14px;
+  bottom: 0;
+  padding-bottom: 0;
+  padding-left: 2px;
+}
+
+
+.error {
+  color: red;
+  border-bottom: red;
+}
+

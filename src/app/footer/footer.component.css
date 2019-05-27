@@ -1,0 +1,20 @@
+footer {
+  background-color: #f6f6f6;
+  color: black;
+  padding-top: 20px;
+}
+
+footer a i {
+  color: black;
+  padding: 5px 15px 5px 15px;
+}
+
+footer a i:hover {
+  color: #DC660F;
+}
+
+.fa-heart {
+  animation-duration: 3s;
+  animation-delay: 2s;
+  animation-iteration-count: infinite;
+}
