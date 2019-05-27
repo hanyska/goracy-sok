@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {DataStorageService} from '../../data-storage.service';
+import {map} from 'rxjs/operators';
 
 @Component({
   selector: 'app-last-recipes-list',
@@ -16,11 +17,16 @@ export class LastRecipesListComponent implements OnInit {
   }
 
   getRecipes() {
-    this.recipeService.recipeDetailList.snapshotChanges().subscribe( list => {
-      this.lastRecipes =  list.map( item => {
-        const name = item.payload.key;
-        return { name, ...item.payload.val()};
-      });
+    this.recipeService.fetchRecipe().snapshotChanges().pipe(
+      map(list => {
+        return list.map(item => {
+          const name = item.payload.key;
+          return {name, ...item.payload.val()};
+        });
+      }))
+      .subscribe( value => {
+      this.lastRecipes = value;
+
     });
   }
 

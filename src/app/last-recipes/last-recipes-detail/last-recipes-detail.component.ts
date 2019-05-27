@@ -9,7 +9,7 @@ import {Recipe} from '../../recipe.model';
   styleUrls: ['./last-recipes-detail.component.css']
 })
 export class LastRecipesDetailComponent implements OnInit {
-  recipe: Recipe;
+  recipe = {} as Recipe;
 
   constructor(private route: ActivatedRoute,
               private recipeService: DataStorageService) { }
@@ -22,10 +22,9 @@ export class LastRecipesDetailComponent implements OnInit {
     const name = this.route.snapshot.params['name'];
     console.log(name);
 
-    this.recipeService.getRecipe(name).subscribe(
-      value => {
+    this.recipeService.getRecipe(name).subscribe(value => {
         this.recipe = value;
-      });
+    });
   }
 
 }

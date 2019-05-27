@@ -7,21 +7,21 @@ import {Recipe} from './recipe.model';
   providedIn: 'root'
 })
 export class DataStorageService {
-  recipeDetailList: AngularFireList <any[]>;
+  recipeDetailList: AngularFireList <Recipe[]>;
 
   constructor(private firebase: AngularFireDatabase) {
     this.recipeDetailList = firebase.list<Recipe[]>('recipes');
   }
 
   fetchRecipe() {
-    this.recipeDetailList = this.firebase.list<Recipe[]>('recipes');
+    return this.recipeDetailList;
   }
 
   getRecipe(name: string): Observable<Recipe> {
     return this.firebase.object<Recipe>(`recipes/${name}`).valueChanges();
   }
 
-  storeRecipe(recipes) {
+  storeRecipe(recipes: Recipe[]) {
     this.recipeDetailList.push(recipes);
   }
 
