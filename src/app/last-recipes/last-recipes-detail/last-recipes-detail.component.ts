@@ -19,11 +19,11 @@ export class LastRecipesDetailComponent implements OnInit {
   }
 
   loadRecipe() {
-    const name = this.route.snapshot.params['name'];
-    console.log(name);
-
-    this.recipeService.getRecipe(name).subscribe(value => {
+    this.route.paramMap.subscribe( params => {
+      const name2 = params.get('name');
+      this.recipeService.getRecipe(name2).subscribe(value => {
         this.recipe = value;
+      });
     });
   }
 

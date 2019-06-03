@@ -26,14 +26,8 @@
                     placeholder="Anna"
                     formControlName="username"
                   />
-                  <label for="username" *ngIf="!(recipeForm.get('username').invalid && recipeForm.get('username').touched); else error">
-                    Twoje imie *
-                  </label>
-                  <ng-template #error>
-                    <label for="username" class="error">
-                      Pole nie może być puste!
-                    </label>
-                  </ng-template>
+                  <label for="username" *ngIf="!(recipeForm.get('username').invalid && recipeForm.get('username').touched); else error">Twoje imie *</label>
+                  <ng-template #error><label for="username" class="error">Pole nie może być puste!</label></ng-template>
                 </div>
               </div>
 
@@ -71,12 +65,6 @@
                           accept=".png,.jpg">
                 </div>
               </div>
-
-<!--              <div class="row">-->
-<!--                <div class="col-xs-12">-->
-<!--                  <img [src]="imageUrl.value" class="img-responsive">-->
-<!--                </div>-->
-<!--              </div>-->
             </div>
 
             <div formArrayName="ingredients">
@@ -84,22 +72,24 @@
 
                 <div class="col-md-6 col-sm-6">
                   <div class="form-group has-float-label">
-                    <input class="form-control" type="text" id="name" placeholder="Sok pomarańczowy"
+                    <input class="form-control" type="text"  id="name" placeholder="Sok pomarańczowy"
                            formControlName="name">
                     <label for="name">Składniki</label>
                   </div>
                 </div>
 
                 <div class="col-md-2 col-sm-2">
-                  <div class="form-group has-float-label">
-                    <input class="form-control" type="number" formControlName="amount" id="amount" placeholder="1">
-                    <label for="amount">Ilość</label>
-                  </div>
+                    <div class="form-group has-float-label">
+                      <label>
+                      <input class="form-control" type="number" min="1" formControlName="amount" id="amount" placeholder="1">
+                        Ilość</label>
+                    </div>
+
                 </div>
 
                 <div class="col-md-2 col-sm-2">
                   <label class="form-group has-float-label">
-                    <select class="form-control custom-select-lg" formControlName="measure" id="measure" style="cursor: pointer" required>
+                    <select class="custom-select-lg" formControlName="measure" id="measure" style="cursor: pointer" required>
                       <option *ngFor="let m of measures" [value]="m">{{m}}</option>
                     </select>
                   </label>

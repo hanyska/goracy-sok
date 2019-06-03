@@ -10,7 +10,8 @@ import {FormsModule} from '@angular/forms';
   declarations: [
     LastRecipesComponent,
     LastRecipesListComponent,
-    LastRecipesDetailComponent],
+    LastRecipesDetailComponent
+  ],
   exports: [
     LastRecipesComponent
   ],

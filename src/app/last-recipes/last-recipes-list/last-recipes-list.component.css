@@ -14,7 +14,6 @@
   object-fit: cover;
 }
 
-
 .product-description {
   position: absolute;
   top: 0;
@@ -33,6 +32,16 @@
   transition: transform 200ms ease-in-out;
 }
 
+.recipe-image {
+  transition: all 0.4s;
+  -webkit-transition: all 0.4s;
+}
+
+
+.product-container:hover .recipe-image{
+  transform: scale(1.2);
+}
+
 .product-container:hover .product-description {
   transform: translateY(0);
 }
@@ -40,4 +49,8 @@
 .recipe-row {
   outline: none;
   cursor: pointer;
+}
+
+body {
+  background-color: #F3F5F6;
 }
