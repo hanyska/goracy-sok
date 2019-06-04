@@ -7,14 +7,14 @@ import {Recipe} from './recipe.model';
   providedIn: 'root'
 })
 export class DataStorageService {
-  recipeDetailList: AngularFireList <Recipe[]>;
+  recipeRef: AngularFireList<Recipe[]>;
 
   constructor(private firebase: AngularFireDatabase) {
-    this.recipeDetailList = firebase.list<Recipe[]>('recipes');
+    this.recipeRef = firebase.list<Recipe[]>('recipes', ref => ref.limitToLast(3));
   }
 
   fetchRecipe() {
-    return this.recipeDetailList;
+    return this.recipeRef;
   }
 
   getRecipe(name: string): Observable<Recipe> {
@@ -22,7 +22,7 @@ export class DataStorageService {
   }
 
   storeRecipe(recipes: Recipe[]) {
-    this.recipeDetailList.push(recipes);
+    this.recipeRef.push(recipes);
   }
 
 }
