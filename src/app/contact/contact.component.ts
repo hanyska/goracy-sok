@@ -57,20 +57,14 @@ export class ContactComponent implements OnInit {
         })
       ).subscribe();
     }
-
-
-    // this.recipeService.storeRecipe(this.recipeForm.value).subscribe(
-    //   (response) => console.log(response),
-    //   (error) => console.log(error)
-    // );
   }
 
   getControls() {
-      return (<FormArray>this.recipeForm.get('ingredients')).controls;
+      return (this.recipeForm.get('ingredients') as FormArray).controls;
   }
 
   onAddIngredient() {
-    (<FormArray>this.recipeForm.get('ingredients')).push(
+    (this.recipeForm.get('ingredients') as FormArray).push(
       new FormGroup({
         name: new FormControl('', Validators.required),
         amount: new FormControl('', [Validators.required, Validators.pattern(/^[1-9]+[0-9]*$/)]),
@@ -90,5 +84,7 @@ export class ContactComponent implements OnInit {
   onResetRecipe() {
     this.recipeForm.reset();
   }
+
+  get f() { return this.recipeForm.controls; }
 
 }

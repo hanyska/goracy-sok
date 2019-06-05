@@ -97,32 +97,51 @@ h3.heading {
 }
 
 .form-control:focus {
-  box-shadow: none ;
-}
-
-.has-float-label input:focus,
-.has-float-label textarea:focus,
-.has-float-label select:focus {
-  border-color: #f1802d;
+  box-shadow: none;
 }
 
 .has-float-label.select-label label{
   top:.9em;
 }
 
+.has-float-label input:placeholder-shown:not(:focus)+* {
+  font-size: 120%;
+  opacity: 0.5;
+  top: .25em;
+}
+
+.has-float-label input:focus, .has-float-label select:focus, .has-float-label textarea:focus {
+  outline: 0;
+  border-color: #f1802d
+}
+
+.form-control-file {
+  color: #4C535A
+}
+
 select {
   font-size: 14px;
   bottom: 0;
   padding-bottom: 0;
-  padding-left: 2px
+  padding-left: 2px;
 }
 
 .form-group {
   margin: 15px 10px;
 }
 
-.error {
+
+.has-danger {
+  border-bottom-color: red !important;
   color: red;
-  border-bottom: red;
 }
 
+.has-success {
+  border-bottom-color: green !important;
+  color: green;
+}
+
+.error {
+  color: red;
+  font-size: 14px;
+}

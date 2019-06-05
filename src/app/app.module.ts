@@ -19,6 +19,7 @@ import {environment} from '../environments/environment';
 import {AngularFireDatabaseModule} from '@angular/fire/database';
 import {LastRecipesModule} from './last-recipes/last-recipes.module';
 import {LastRecipeRoutingModule} from './last-recipes/last-recipe-routing.module';
+import {TextareaAutosizeModule} from 'ngx-textarea-autosize';
 
 
 @NgModule({
@@ -41,7 +42,8 @@ import {LastRecipeRoutingModule} from './last-recipes/last-recipe-routing.module
     AngularFireDatabaseModule,
     FormsModule,
     ReactiveFormsModule,
-    LastRecipesModule
+    LastRecipesModule,
+    TextareaAutosizeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

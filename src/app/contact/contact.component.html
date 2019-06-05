@@ -16,9 +16,12 @@
           <h5>Pokaż nam swoją wersję gorącego soku pomarańczowego!</h5>
 
           <form [formGroup]="recipeForm" (ngSubmit)="onSubmit(recipeForm.value)">
-            <div class="row mb-2">
+            <div class="form-row">
               <div class="col-md-6 col-sm-12">
-                <div class="form-group has-float-label">
+                <div class="form-group has-float-label" [ngClass]="{
+                  'has-danger': recipeForm.controls.username.invalid && recipeForm.controls.username.dirty,
+                  'has-success': recipeForm.controls.username.valid && recipeForm.controls.username.dirty
+                  }">
                   <input
                     class="form-control"
                     type="text"
@@ -38,13 +41,38 @@
                     type="text"
                     id="email"
                     placeholder="anna@gmail.com"
-                    formControlName="email"/>
+                    formControlName="email"
+                    required
+                    [ngClass]="{
+                  'has-danger': recipeForm.controls.email.invalid && recipeForm.controls.email.touched,
+                  'has-success': recipeForm.controls.email.valid && recipeForm.controls.email.touched
+                  }"
+                  />
                   <label for="email">Adres e-mail *</label>
+
+                  <div class="error" *ngIf="f.email.invalid && (f.email.dirty || f.email.touched)">
+                    <p *ngIf="f.email.errors.required">Email nie może być pusty</p>
+                    <p *ngIf="f.email.errors.email">Adres e-mail musi zawierać znak @</p>
+                  </div>
+
                 </div>
               </div>
             </div>
 
-            <div class="row">
+            <div class="form-row">
+              <div class="col-md-12 col-sm-12">
+                <div class="form-group has-float-label">
+                  <input type="file"
+                         id="image"
+                         class="form-control-file"
+                         formControlName="imageUrl"
+                         (change)="showPreview($event)"
+                         accept=".png,.jpg">
+                </div>
+              </div>
+            </div>
+
+            <div class="form-row">
               <div class="col-md-12 col-sm-12">
                 <div class="form-group has-float-label">
                   <input
@@ -56,42 +84,33 @@
                   <label for="namerecipe">Nazwa przepisu *</label>
                 </div>
               </div>
-
-              <div class="col-md-12 col-sm-12">
-                <div class="form-group has-float-label">
-                  <input type="file"
-                         formControlName="imageUrl"
-                         (change)="showPreview($event)"
-                          accept=".png,.jpg">
-                </div>
-              </div>
             </div>
 
             <div formArrayName="ingredients">
-              <div class="row" *ngFor="let ingredient of getControls(); let i = index" [formGroupName]="i">
+              <div class="form-row" *ngFor="let ingredient of getControls(); let i = index" [formGroupName]="i">
 
-                <div class="col-md-6 col-sm-6">
+                <div class="col-md-2 col-sm-2">
                   <div class="form-group has-float-label">
-                    <input class="form-control" type="text"  id="name" placeholder="Sok pomarańczowy"
-                           formControlName="name">
-                    <label for="name">Składniki</label>
+                    <input class="form-control" type="number" min="1" formControlName="amount" id="amount" placeholder="1">
+                    <label for="amount">Ilość</label>
                   </div>
                 </div>
 
-                <div class="col-md-2 col-sm-2">
-                    <div class="form-group has-float-label">
-                      <input class="form-control" type="number" min="1" formControlName="amount" id="amount" placeholder="1">
-                        <label for="amount">Ilość</label>
-                    </div>
-
-                </div>
-
-                <div class="col-md-2 col-sm-2">
+                <div class="col-md-3 col-sm-3">
                   <label class="form-group has-float-label">
-                    <select class="custom-select-lg" formControlName="measure" id="measure" style="cursor: pointer" required>
+                    <select class="form-control custom-select" formControlName="measure" id="measure" style="cursor: pointer" required>
                       <option *ngFor="let m of measures" [value]="m">{{m}}</option>
                     </select>
+                    <span>Jednostka</span>
                   </label>
+                </div>
+
+                <div class="col-md-5 col-sm-5">
+                  <div class="form-group has-float-label">
+                    <input class="form-control" type="text"  id="name" placeholder="soku pomarańczowego"
+                           formControlName="name">
+                    <label for="name">Składnik</label>
+                  </div>
                 </div>
 
                 <div class="col-md-1 col-sm-1 mt-2 p-1">
@@ -108,12 +127,14 @@
             </div>
 
 
-            <div class="row">
+            <div class="form-row">
               <div class="col-md-12 col-sm-12 textarea">
                 <div class="form-group has-float-label">
                   <textarea
-                    rows="4"
+                    style="resize: none"
+                    autosize
                     id="recipe"
+                    class="form-control"
                     placeholder="Sok pomarańczowy podgrzewamy ..."
                     formControlName="recipe">
                   </textarea>

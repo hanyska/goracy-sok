@@ -25,6 +25,7 @@
     "core-js": "^2.5.4",
     "firebase": "^5.11.1",
     "jquery": "^3.3.1",
+    "ngx-textarea-autosize": "^2.0.3",
     "ngx-wow": "^2.0.1",
     "popper.js": "^1.14.7",
     "rxjs": "~6.3.3",
