@@ -4,6 +4,7 @@ import {DataStorageService} from '../data-storage.service';
 import {AngularFireStorage} from '@angular/fire/storage';
 import {finalize} from 'rxjs/operators';
 
+
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
@@ -11,6 +12,8 @@ import {finalize} from 'rxjs/operators';
 })
 export class ContactComponent implements OnInit {
   selectedImage: any = null;
+  url: any = '';
+  valid = true;
 
   recipeForm = new FormGroup({
     username: new FormControl('', [Validators.required]),
@@ -36,8 +39,13 @@ export class ContactComponent implements OnInit {
   showPreview(event: any) {
     if (event.target.files && event.target.files[0]) {
       const reader = new FileReader();
-      reader.readAsDataURL(event.target.files[0]);
-      this.selectedImage = event.target.files[0];
+      const files = event.target.files;
+      reader.readAsDataURL(files[0]);
+
+      reader.onload = (img) => {
+        this.url = (img.target as FileReader).result;
+      };
+      this.selectedImage = files[0];
     } else {
       this.selectedImage = null;
     }

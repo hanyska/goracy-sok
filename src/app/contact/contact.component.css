@@ -38,7 +38,7 @@ h3.heading {
 }
 
 .sidebar {
-  min-width: 50px;
+  min-width: 100px;
   text-align: center;
   background: #f1802d;
   color: #fff;
@@ -152,6 +152,10 @@ input[type="file"]::-webkit-file-upload-button:hover {
 .has-success {
   border-bottom: 1.5px solid green !important;
   color: green;
+}
+
+.image-recipe {
+  border-radius: 5px;
 }
 
 .error {

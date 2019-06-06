@@ -31,7 +31,7 @@
                   />
                   <label for="username">Imię *</label>
                   <div class="error" *ngIf="recipeForm.controls.username.invalid && (recipeForm.controls.username.dirty || recipeForm.controls.username.touched)">
-                    <p *ngIf="f.username.errors.required">Imię nie może być puste</p>
+                    <p *ngIf="recipeForm.controls.username.errors.required">Imię nie może być puste</p>
                   </div>
 
                 </div>
@@ -61,8 +61,8 @@
               </div>
             </div>
 
-            <div class="form-row">
-              <div class="col-md-12 col-sm-12">
+            <div class="form-row pb-2">
+              <div class="col-md-6 col-sm-12">
                 <div class="form-group has-float-label">
                   <input type="file"
                          id="image"
@@ -76,9 +76,13 @@
 
                   <div class="error" *ngIf="recipeForm.controls.imageUrl.invalid && (recipeForm.controls.imageUrl.dirty || recipeForm.controls.imageUrl.touched)">
                     <p *ngIf="recipeForm.controls.imageUrl.errors.required">Zdjęcie musi być dodane</p>
+                    <p *ngIf="!this.valid">Zdjęcie musi być w formacie .jpg lub .png</p>
                   </div>
 
                 </div>
+              </div>
+              <div class="col-md-6 col-sm-12" *ngIf="url.length != 0">
+                <img class="img-fluid image-recipe" [src]="url">
               </div>
             </div>
 
@@ -238,7 +242,7 @@
 
           <div class="detail">
             <i class="fas fa-envelope fa-2x"></i>
-            <p>goracysokpomaranczowy@gmail.com</p>
+            <p style="word-wrap:break-word">goracysokpomaranczowy@gmail.com</p>
           </div>
         </div>
       </div>
