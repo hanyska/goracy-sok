@@ -1,0 +1,31 @@
+.send-recipe-header {
+  background-color: #123740!important;
+  min-height: 400px;
+  color: white;
+  padding-top: 80px;
+}
+
+h3.heading {
+  font-size: 32px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 30px;
+}
+
+.heading-underline {
+  width: 60px;
+  height: 5px;
+  background-color: #f1802d;
+  border-radius: 5px;
+  margin: 0 auto 32px;
+}
+
+.send-recipe-container {
+  box-shadow: 0 0 50px 0 rgba(0,0,0,.2);
+  background: #fff;
+  position: relative;
+  margin: -200px 0 80px;
+  z-index: 100;
+  max-width: 100%;
+  max-height: 100%;
+}

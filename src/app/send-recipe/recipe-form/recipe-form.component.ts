@@ -1,16 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import {FormArray, FormControl, FormGroup, Validators} from '@angular/forms';
-import {DataStorageService} from '../data-storage.service';
+import {DataStorageService} from '../../data-storage.service';
 import {AngularFireStorage} from '@angular/fire/storage';
 import {finalize} from 'rxjs/operators';
 
-
 @Component({
-  selector: 'app-contact',
-  templateUrl: './contact.component.html',
-  styleUrls: ['./contact.component.css']
+  selector: 'app-recipe-form',
+  templateUrl: './recipe-form.component.html',
+  styleUrls: ['./recipe-form.component.css']
 })
-export class ContactComponent implements OnInit {
+export class RecipeFormComponent implements OnInit {
   selectedImage: any = null;
   url: any = '';
   valid = true;
@@ -68,7 +67,7 @@ export class ContactComponent implements OnInit {
   }
 
   getControls() {
-      return (this.recipeForm.get('ingredients') as FormArray).controls;
+    return (this.recipeForm.get('ingredients') as FormArray).controls;
   }
 
   onAddIngredient() {

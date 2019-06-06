@@ -5,8 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FanpageComponent } from './fanpage/fanpage.component';
-import { LastRecipesComponent } from './last-recipes/last-recipes.component';
-import { ContactComponent } from './contact/contact.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { ReviewsComponent } from './reviews/reviews.component';
 import { FooterComponent } from './footer/footer.component';
@@ -20,6 +18,9 @@ import {AngularFireDatabaseModule} from '@angular/fire/database';
 import {LastRecipesModule} from './last-recipes/last-recipes.module';
 import {LastRecipeRoutingModule} from './last-recipes/last-recipe-routing.module';
 import {TextareaAutosizeModule} from 'ngx-textarea-autosize';
+import { SendRecipeComponent } from './send-recipe/send-recipe.component';
+import { RecipeFormComponent } from './send-recipe/recipe-form/recipe-form.component';
+import {ContactComponent} from './send-recipe/contact/contact.component';
 
 
 @NgModule({
@@ -27,10 +28,12 @@ import {TextareaAutosizeModule} from 'ngx-textarea-autosize';
     AppComponent,
     HeaderComponent,
     FanpageComponent,
-    ContactComponent,
     ReviewsComponent,
     FooterComponent,
-    WhyComponent
+    WhyComponent,
+    SendRecipeComponent,
+    RecipeFormComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,

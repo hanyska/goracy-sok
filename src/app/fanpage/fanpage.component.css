@@ -35,6 +35,7 @@ h3 {
   z-index: -1;
   background: url(../../assets/img/tlo.jpg) no-repeat fixed;
   background-size: cover;
+  overflow: hidden;
 }
 
 .dark {
