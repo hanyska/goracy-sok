@@ -15,14 +15,14 @@ export class ContactComponent implements OnInit {
   recipeForm = new FormGroup({
     username: new FormControl('', [Validators.required]),
     email: new FormControl('', [Validators.required, Validators.email]),
-    nameRecipe: new FormControl('', Validators.required),
-    imageUrl: new FormControl(''),
+    nameRecipe: new FormControl('', [Validators.required]),
+    imageUrl: new FormControl('', [Validators.required]),
     ingredients: new FormArray([new FormGroup({
-      name: new FormControl(''),
-      amount: new FormControl(''),
-      measure: new FormControl('sztuka'),
+      name: new FormControl('', Validators.required),
+      amount: new FormControl('', [Validators.required, Validators.pattern(/^[1-9]+[0-9]*$/)]),
+      measure: new FormControl('sztuka', Validators.required),
     })]),
-    recipe: new FormControl('')
+    recipe: new FormControl('', Validators.required)
   });
 
   measures = ['g', 'dag', 'kg', 'sztuka', 'łyżeczka', 'łyżka', 'szklanka' ];
@@ -68,7 +68,7 @@ export class ContactComponent implements OnInit {
       new FormGroup({
         name: new FormControl('', Validators.required),
         amount: new FormControl('', [Validators.required, Validators.pattern(/^[1-9]+[0-9]*$/)]),
-        measure: new FormControl('sztuka')
+        measure: new FormControl('sztuka', Validators.required)
       })
     );
   }
@@ -82,9 +82,11 @@ export class ContactComponent implements OnInit {
   }
 
   onResetRecipe() {
+    const control = (this.recipeForm.controls.ingredients) as FormArray;
+    while (control.length > 1) {
+      control.removeAt(0);
+    }
     this.recipeForm.reset();
   }
-
-  get f() { return this.recipeForm.controls; }
 
 }

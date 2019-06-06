@@ -130,14 +130,27 @@ select {
   margin: 15px 10px;
 }
 
+input[type="file"]::-webkit-file-upload-button {
+  background-color: transparent;
+  border: 2px solid transparent;
+  border-radius: 10px;
+  color: #f1802d;
+}
+
+input[type="file"]::-webkit-file-upload-button:hover {
+  border-radius: 10px;
+  border: 2px solid transparent;
+  background-color: #f1802d;
+  color: white;
+}
 
 .has-danger {
-  border-bottom-color: red !important;
+  border-bottom: 1.5px solid red !important;
   color: red;
 }
 
 .has-success {
-  border-bottom-color: green !important;
+  border-bottom: 1.5px solid green !important;
   color: green;
 }
 
