@@ -41,21 +41,3 @@ nav .navbar-nav li a:hover{
 .bg-dark {
   background-color: transparent !important;
 }
-
-.btn-secondary {
-  border-radius: 5px;
-  padding: 10px 22px;
-  font-size: 21px;
-  text-transform: uppercase;
-  margin: 22px;
-  border: medium #f1802d;
-  background-color: #f1802d;
-  color: white;
-}
-
-.btn-secondary:hover,
-.btn-secondary:focus {
-  border-color: #DC660F;
-  background-color: #DC660F;
-  color: white;
-}

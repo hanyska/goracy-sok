@@ -3,3 +3,38 @@
 * {
   font-family: 'Roboto', sans-serif;
 }
+
+h3.heading
+{
+  font-size: 32px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 30px;
+}
+
+.heading-underline
+{
+  width: 60px;
+  height: 5px;
+  background-color: #f1802d;
+  border-radius: 5px;
+  margin: 0 auto 32px;
+}
+
+.btn-secondary {
+  border-radius: 5px;
+  padding: 10px 22px;
+  font-size: 21px;
+  text-transform: uppercase;
+  margin: 22px;
+  border: medium #f1802d;
+  background-color: #f1802d;
+  color: white;
+}
+
+.btn-secondary:hover,
+.btn-secondary:focus {
+  border-color: #DC660F;
+  background-color: #DC660F;
+  color: white;
+}

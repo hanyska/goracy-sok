@@ -22,18 +22,3 @@ blockquote .svg-inline--fa {
 .fa, .fab, .fal, .far, .fas {
   color: #f1802d;
 }
-
-h3.heading {
-  font-size: 32px;
-  font-weight: 700;
-  text-transform: uppercase;
-  margin-bottom: 30px;
-}
-
-.heading-underline {
-  width: 60px;
-  height: 5px;
-  background-color: #f1802d;
-  border-radius: 5px;
-  margin: 0 auto 32px;
-}
