@@ -1,6 +1,6 @@
 <div class="row text-center">
   <div class="col-md-4 recipe-row" *ngFor="let lastRecipe of lastRecipes"
-       [routerLink]="['/przepisy', lastRecipe.name]">
+       [routerLink]="[{ outlets: { secondRouter: [lastRecipe?.name] } }]">
       <figure class="product-container">
         <img class="img-fluid w-100 recipe-image" alt="" [src]="lastRecipe.imageUrl">
         <figcaption class="product-description">{{lastRecipe.nameRecipe | uppercase}}</figcaption>
@@ -10,6 +10,6 @@
 
 <div class="row">
   <div class="col-md-12">
-    <router-outlet></router-outlet>
+    <router-outlet name="secondRouter"></router-outlet>
   </div>
 </div>

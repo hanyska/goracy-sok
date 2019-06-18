@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {DataStorageService} from '../../data-storage.service';
 import {map} from 'rxjs/operators';
-import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-last-recipes-list',

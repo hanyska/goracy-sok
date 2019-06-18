@@ -46,7 +46,7 @@ import {ContactComponent} from './send-recipe/contact/contact.component';
     FormsModule,
     ReactiveFormsModule,
     LastRecipesModule,
-    TextareaAutosizeModule
+    TextareaAutosizeModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
