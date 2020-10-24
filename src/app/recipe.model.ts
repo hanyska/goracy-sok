@@ -10,4 +10,5 @@ export interface Recipe {
     amount: number;
     measure: string;
   };
+  date: string;
 }

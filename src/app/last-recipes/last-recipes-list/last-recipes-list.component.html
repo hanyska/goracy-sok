@@ -1,6 +1,7 @@
 <div class="row text-center">
-  <div class="col-md-4 recipe-row" *ngFor="let lastRecipe of lastRecipes"
-       [routerLink]="[{ outlets: { secondRouter: [lastRecipe?.name] } }]">
+  <div class="col-md-4 recipe-row"
+       *ngFor="let lastRecipe of lastRecipes?.slice().reverse()"
+       (click)="toggleShowDetailRecipe(lastRecipe)">
       <figure class="product-container">
         <img class="img-fluid w-100 recipe-image" alt="" [src]="lastRecipe.imageUrl">
         <figcaption class="product-description">{{lastRecipe.nameRecipe | uppercase}}</figcaption>
@@ -10,6 +11,6 @@
 
 <div class="row">
   <div class="col-md-12">
-    <router-outlet name="secondRouter"></router-outlet>
-  </div>
+    <app-last-recipes-detail [(recipe)]="detailRecipe"></app-last-recipes-detail>
+</div>
 </div>

@@ -3,6 +3,7 @@ import {FormArray, FormControl, FormGroup, Validators} from '@angular/forms';
 import {DataStorageService} from '../../data-storage.service';
 import {AngularFireStorage} from '@angular/fire/storage';
 import {finalize} from 'rxjs/operators';
+import {formatDate} from '@angular/common';
 
 @Component({
   selector: 'app-recipe-form',
@@ -24,7 +25,7 @@ export class RecipeFormComponent implements OnInit {
       amount: new FormControl('', [Validators.required, Validators.pattern(/^[1-9]+[0-9]*$/)]),
       measure: new FormControl('sztuka', Validators.required),
     })]),
-    recipe: new FormControl('', Validators.required)
+    recipe: new FormControl('', Validators.required),
   });
 
   measures = ['g', 'dag', 'kg', 'sztuka', 'łyżeczka', 'łyżka', 'szklanka' ];
@@ -52,19 +53,26 @@ export class RecipeFormComponent implements OnInit {
 
   onSubmit(formValue) {
     if (this.recipeForm.valid) {
+      formValue.date = formatDate(new Date(), 'yyyy/MM/dd HH:mm:ss', 'en');
+
       const filePath = `${this.selectedImage.name.split('.').slice(0, -1).join('.')}_  ${new Date().getTime()}`;
       const fileRef = this.storage.ref(filePath);
-      this.storage.upload(filePath, this.selectedImage).snapshotChanges().pipe(
-        finalize(() => {
-          fileRef.getDownloadURL().subscribe((url) => {
-            formValue.imageUrl = url;
-            this.recipeService.storeRecipe(formValue);
-            this.onResetRecipe();
-          });
-        })
-      ).subscribe();
+      this.storage.upload(filePath, this.selectedImage)
+        .snapshotChanges()
+        .pipe(
+          finalize(() => {
+            fileRef.getDownloadURL().subscribe((url) => {
+              formValue.imageUrl = url;
+              this.recipeService.storeRecipe(formValue);
+              this.onResetRecipe();
+            });
+          })
+        )
+        .subscribe();
     }
   }
+
+
 
   getControls() {
     return (this.recipeForm.get('ingredients') as FormArray).controls;
@@ -93,6 +101,8 @@ export class RecipeFormComponent implements OnInit {
     while (control.length > 1) {
       control.removeAt(0);
     }
+    this.url = '';
+    this.selectedImage = null;
     this.recipeForm.reset();
   }
 

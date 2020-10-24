@@ -7,7 +7,13 @@ import {Component, OnInit} from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  scrollTo(id: string): void {
+    const el: HTMLElement|null = document.getElementById(id);
+    if (el) {
+      setTimeout(() =>
+        el.scrollIntoView({behavior: 'smooth', block: 'center', inline: 'nearest'}), 0);
+    }
+  }
 
   ngOnInit() {
   }

@@ -3,10 +3,10 @@
     <div class="navbar-collapse collapse w-100 dual-collapse2 order-1 order-md-0">
       <ul class="navbar-nav ml-auto text-center display-4">
         <li class="nav-item">
-          <a class="nav-link" routerLink="/przepisy" >Przepisy</a>
+          <a class="nav-link cursor-pointer" (click)="scrollTo('last-recipe')">Przepisy</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/goracysok">Gorący sok?</a>
+          <a class="nav-link cursor-pointer" (click)="scrollTo('why')">Gorący sok?</a>
         </li>
       </ul>
     </div>
@@ -21,10 +21,10 @@
     <div class="navbar-collapse collapse w-100 dual-collapse2 order-2 order-md-2">
       <ul class="navbar-nav mr-auto text-center display-4">
         <li class="nav-item">
-          <a class="nav-link" routerLink="/kontakt">Kontakt</a>
+          <a class="nav-link cursor-pointer" (click)="scrollTo('contact')">Kontakt</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/fanpage">Facebook</a>
+          <a class="nav-link cursor-pointer" (click)="scrollTo('fanpage')">Facebook</a>
         </li>
       </ul>
     </div>
@@ -34,6 +34,6 @@
   <div class="container text-center pt-3">
     <h1 class="display-2">Dzień dobry!</h1>
     <p class="lead">Witaj na moim blogu poświeconym gorącemu soku pomarańczowemu.</p>
-    <a routerLink="/fanpage"><button type="button" class="btn btn-secondary btn-lg">Zobacz więcej</button></a>
+    <a class="cursor-pointer" (click)="scrollTo('fanpage')"><button type="button" class="btn btn-secondary btn-lg">Zobacz więcej</button></a>
   </div>
 </div>

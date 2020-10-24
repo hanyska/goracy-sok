@@ -10,7 +10,7 @@ export class DataStorageService {
   recipeRef: AngularFireList<Recipe[]>;
 
   constructor(private firebase: AngularFireDatabase) {
-    this.recipeRef = firebase.list<Recipe[]>('recipes', ref => ref.limitToLast(3));
+    this.recipeRef = firebase.list<Recipe[]>('recipes', ref => ref.orderByChild('date').limitToLast(3));
   }
 
   fetchRecipe() {

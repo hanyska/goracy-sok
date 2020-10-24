@@ -1,4 +1,7 @@
-<div class="jumbotron mt-3 text-dark">
+<div class="jumbotron mt-3 text-dark" *ngIf="recipe" [@fadeInOut]>
+  <div class="float-right position-relative">
+    <button class="btn btn-danger" (click)="closeDetailRecipe()">X</button>
+  </div>
   <div class="container">
     <h1 class="display-4 pb-lg-5 font-weight-bold"> {{recipe.nameRecipe}}</h1>
     <div class="row">

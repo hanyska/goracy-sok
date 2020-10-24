@@ -41,3 +41,7 @@ nav .navbar-nav li a:hover{
 .bg-dark {
   background-color: transparent !important;
 }
+
+.cursor-pointer {
+  cursor: pointer !important;
+}

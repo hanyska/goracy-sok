@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {DataStorageService} from '../../data-storage.service';
 import {map} from 'rxjs/operators';
+import {Recipe} from '../../recipe.model';
 
 @Component({
   selector: 'app-last-recipes-list',
@@ -9,6 +10,7 @@ import {map} from 'rxjs/operators';
 })
 export class LastRecipesListComponent implements OnInit {
   lastRecipes;
+  detailRecipe: Recipe;
 
   constructor(private recipeService: DataStorageService) {}
 
@@ -22,12 +24,16 @@ export class LastRecipesListComponent implements OnInit {
       .pipe(
           map(list => {
           return list.map(item => {
-            const name = item.payload.key;
-            return {name, ...item.payload.val()};
+            return {key: item.payload.key , ...item.payload.val()};
           });
         }))
       .subscribe( value => {
-      this.lastRecipes = value;
+        this.lastRecipes = value;
       });
+  }
+
+  toggleShowDetailRecipe( recipe ) {
+      this.detailRecipe = recipe;
+      window.scrollTo({ left: 0, top: 2500, behavior: 'smooth' });
   }
 }

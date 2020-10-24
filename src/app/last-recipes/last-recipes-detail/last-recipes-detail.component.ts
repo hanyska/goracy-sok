@@ -1,30 +1,32 @@
-import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
-import {DataStorageService} from '../../data-storage.service';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {Recipe} from '../../recipe.model';
+import {animate, style, transition, trigger} from '@angular/animations';
 
 @Component({
   selector: 'app-last-recipes-detail',
   templateUrl: './last-recipes-detail.component.html',
-  styleUrls: ['./last-recipes-detail.component.css']
+  styleUrls: ['./last-recipes-detail.component.css'],
+  animations: [
+    trigger('fadeInOut', [
+      transition(':enter', [
+        style({opacity: 0}),
+        animate(600 )
+      ]),
+      transition(':leave', [
+        animate(300, style({opacity: 0}))
+      ])
+    ])
+  ]
 })
-export class LastRecipesDetailComponent implements OnInit {
-  recipe = {} as Recipe;
+export class LastRecipesDetailComponent {
+  @Input() recipe: Recipe;
+  @Output() recipeChange = new EventEmitter<Recipe>();
 
-  constructor(private route: ActivatedRoute,
-              private recipeService: DataStorageService) { }
-
-  ngOnInit() {
-    this.loadRecipe();
+  closeDetailRecipe() {
+    this.recipeChange.emit(undefined);
+    window.scrollTo({ left: 0, top: 2000, behavior: 'smooth' });
   }
 
-  loadRecipe() {
-    this.route.paramMap.subscribe( params => {
-      const name2 = params.get('name');
-      this.recipeService.getRecipe(name2).subscribe(value => {
-        this.recipe = value;
-      });
-    });
+  constructor() {
   }
-
 }

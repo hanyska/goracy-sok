@@ -22,7 +22,6 @@ import { SendRecipeComponent } from './send-recipe/send-recipe.component';
 import { RecipeFormComponent } from './send-recipe/recipe-form/recipe-form.component';
 import {ContactComponent} from './send-recipe/contact/contact.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +32,7 @@ import {ContactComponent} from './send-recipe/contact/contact.component';
     WhyComponent,
     SendRecipeComponent,
     RecipeFormComponent,
-    ContactComponent
+    ContactComponent,
   ],
   imports: [
     BrowserModule,
