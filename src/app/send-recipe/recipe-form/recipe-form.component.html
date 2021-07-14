@@ -50,7 +50,7 @@
     </div>
 
     <div class="form-row pb-2">
-      <div class="col-md-6 col-sm-12">
+      <div class="col-md-6 col-sm-12 my-auto">
         <div class="form-group has-float-label">
           <input type="file"
                  id="image"
@@ -70,11 +70,8 @@
 
         </div>
       </div>
-      <p>
-        {{url}}
-      </p>
       <div class="col-md-6 col-sm-12" *ngIf="url.length != 0">
-        <img class="img-fluid image-recipe" [src]="url">
+        <img class="img-fluid image-recipe" alt="Zdjęcie przepisu" [src]="url" >
       </div>
     </div>
 
@@ -117,14 +114,14 @@
                 id="{{'amount' + i}}"
                 placeholder="1"
                 [ngClass]="{
-                        'has-danger': ingredient.controls.amount.invalid && ingredient.controls.amount.touched,
-                        'has-success': ingredient.controls.amount.valid && ingredient.controls.amount.touched }">
+                        'has-danger': ingredient.get('amount').invalid && ingredient.get('amount').touched,
+                        'has-success': ingredient.get('amount').valid && ingredient.get('amount').touched }">
 
               <label attr.for="{{'amount' + i}}">Ilość</label>
 
-              <div class="error" *ngIf="ingredient.controls.amount.invalid && ingredient.controls.amount.touched">
-                <p *ngIf="ingredient.controls.amount.errors.required">Pole nie może być puste</p>
-                <p *ngIf="ingredient.controls.amount.errors.pattern">Niepoprawna wartość</p>
+              <div class="error" *ngIf="ingredient.get('amount').invalid && ingredient.get('amount').touched">
+                <p *ngIf="ingredient.get('amount').errors.required">Pole nie może być puste</p>
+                <p *ngIf="ingredient.get('amount').errors.pattern">Niepoprawna wartość</p>
               </div>
             </div>
           </div>
@@ -138,7 +135,7 @@
                 style="cursor: pointer"
                 required
                 [ngClass]="{
-                        'has-success': ingredient.controls.measure.valid && ingredient.controls.measure.touched}">
+                        'has-success': ingredient.get('measure').valid && ingredient.get('measure').touched}">
                 <option *ngFor="let m of measures" [value]="m">{{m}}</option>
               </select>
               <label for="measure">Jednostka</label>
@@ -154,12 +151,12 @@
                 placeholder="soku pomarańczowego"
                 formControlName="name"
                 [ngClass]="{
-                        'has-danger': ingredient.controls.name.invalid && ingredient.controls.name.touched,
-                        'has-success': ingredient.controls.name.valid && ingredient.controls.name.touched }">
+                        'has-danger': ingredient.get('name').invalid && ingredient.get('name').touched,
+                        'has-success': ingredient.get('name').valid && ingredient.get('name').touched }">
 
               <label attr.for="{{'name' + i}}">Składnik</label>
 
-              <div class="error" *ngIf="ingredient.controls.name.invalid && ingredient.controls.name.touched">
+              <div class="error" *ngIf="ingredient.get('name').invalid && ingredient.get('name').touched">
                 <p>Pole nie może być puste</p>
               </div>
             </div>
@@ -172,8 +169,11 @@
           </div>
 
           <div class="col-md-1 col-sm-6 mt-2 p-1">
-            <button type="button" class="btn btn-sm btn-block btn-success" (click)="onAddIngredient()"><i
-              class="fas fa-check"></i></button>
+            <button type="button"
+                    class="btn btn-sm btn-block btn-success"
+                    (click)="onAddIngredient()">
+              <i class="fas fa-check"></i>
+            </button>
           </div>
         </div>
       </div>
