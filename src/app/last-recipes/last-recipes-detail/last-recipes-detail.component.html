@@ -3,23 +3,20 @@
     <button class="btn btn-danger" (click)="closeDetailRecipe()">X</button>
   </div>
   <div class="container">
-    <h1 class="display-4 pb-lg-5 font-weight-bold"> {{recipe.nameRecipe}}</h1>
+    <h1 class="display-4 pb-lg-5 font-weight-bold">{{recipe.nameRecipe}}</h1>
     <div class="row">
-
       <div class="col-sm-4">
         <h3 class="pb-2">Składniki</h3>
         <div class="ingredients" *ngFor="let item of recipe.ingredients">
-          <p>{{item.amount}}  <i>{{item.measure}}</i>  {{item.name}}</p>
+          <p>{{item.amount}} <i>{{item.measure}}</i> {{item.name}}</p>
         </div>
       </div>
-
       <div class="col-sm-8">
         <h3 class="pb-2">Przepis</h3>
         <p>{{recipe.recipe}}</p>
         <div class="underline"></div>
-        <p class="float-right"> ~<i>{{recipe.username}}</i></p>
+        <p class="float-right">~<i>{{recipe.username}}</i></p>
       </div>
-
     </div>
   </div>
 </div>

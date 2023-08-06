@@ -5,7 +5,20 @@ import { Recipe } from '../../recipe.model';
 @Component({
   selector: 'gs-last-recipes-detail',
   templateUrl: './last-recipes-detail.component.html',
-  styleUrls: ['./last-recipes-detail.component.css'],
+  styles: [
+    `
+      .ingredients {
+        font-size: 14px;
+        text-align: left;
+      }
+      .underline {
+        height: 1px;
+        background-color: #f1802d;
+        border-radius: 5px;
+        margin: 32px auto 10px;
+      }
+    `,
+  ],
   animations: [
     trigger('fadeInOut', [
       transition(':enter', [style({ opacity: 0 }), animate(600)]),

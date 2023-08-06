@@ -1,7 +1,7 @@
 <div class="row text-center">
   <div
+    *ngFor="let lastRecipe of lastRecipes"
     class="col-md-4 recipe-row"
-    *ngFor="let lastRecipe of lastRecipes?.slice().reverse()"
     (click)="toggleShowDetailRecipe(lastRecipe)">
     <figure class="product-container">
       <img class="img-fluid w-100 recipe-image" alt="" [src]="lastRecipe.imageUrl" />

@@ -6,35 +6,29 @@ import { Recipe } from '../../recipe.model';
 @Component({
   selector: 'gs-last-recipes-list',
   templateUrl: './last-recipes-list.component.html',
-  styleUrls: ['./last-recipes-list.component.css'],
+  styleUrls: ['./last-recipes-list.component.scss'],
 })
 export class LastRecipesListComponent implements OnInit {
-  lastRecipes;
-  detailRecipe: Recipe;
+  public lastRecipes: any[];
+  public detailRecipe: Recipe;
 
   constructor(private recipeService: DataStorageService) {}
 
-  ngOnInit() {
+  public ngOnInit() {
     this.getRecipes();
   }
 
-  getRecipes() {
+  public getRecipes() {
     this.recipeService
       .fetchRecipe()
       .snapshotChanges()
-      .pipe(
-        map(list => {
-          return list.map(item => {
-            return { key: item.payload.key, ...item.payload.val() };
-          });
-        })
-      )
+      .pipe(map(list => list.map(item => ({ key: item.payload.key, ...item.payload.val() }))))
       .subscribe(value => {
-        this.lastRecipes = value;
+        this.lastRecipes = value?.slice().reverse();
       });
   }
 
-  toggleShowDetailRecipe(recipe) {
+  public toggleShowDetailRecipe(recipe: Recipe) {
     this.detailRecipe = recipe;
     window.scrollTo({ left: 0, top: 2500, behavior: 'smooth' });
   }

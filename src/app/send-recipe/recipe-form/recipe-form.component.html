@@ -13,14 +13,13 @@
             formControlName="username"
             [ngClass]="{
                   'has-danger': recipeForm.controls.username.invalid && recipeForm.controls.username.touched,
-                  'has-success': recipeForm.controls.username.valid && recipeForm.controls.username.touched }"
-          />
+                  'has-success': recipeForm.controls.username.valid && recipeForm.controls.username.touched }" />
           <label for="username">Imię *</label>
-          <div class="error"
-               *ngIf="recipeForm.controls.username.invalid && (recipeForm.controls.username.dirty || recipeForm.controls.username.touched)">
+          <div
+            class="error"
+            *ngIf="recipeForm.controls.username.invalid && (recipeForm.controls.username.dirty || recipeForm.controls.username.touched)">
             <p *ngIf="recipeForm.controls.username.errors.required">Imię nie może być puste</p>
           </div>
-
         </div>
       </div>
 
@@ -35,16 +34,15 @@
             required
             [ngClass]="{
                   'has-danger': recipeForm.controls.email.invalid && recipeForm.controls.email.touched,
-                  'has-success': recipeForm.controls.email.valid && recipeForm.controls.email.touched }"
-          />
+                  'has-success': recipeForm.controls.email.valid && recipeForm.controls.email.touched }" />
           <label for="email">Adres e-mail *</label>
 
-          <div class="error"
-               *ngIf="recipeForm.controls.email.invalid && (recipeForm.controls.email.dirty || recipeForm.controls.email.touched)">
+          <div
+            class="error"
+            *ngIf="recipeForm.controls.email.invalid && (recipeForm.controls.email.dirty || recipeForm.controls.email.touched)">
             <p *ngIf="recipeForm.controls.email.errors.required">Email nie może być pusty</p>
             <p *ngIf="recipeForm.controls.email.errors.email">Adres e-mail musi zawierać znak @</p>
           </div>
-
         </div>
       </div>
     </div>
@@ -52,26 +50,27 @@
     <div class="form-row pb-2">
       <div class="col-md-6 col-sm-12 my-auto">
         <div class="form-group has-float-label">
-          <input type="file"
-                 id="image"
-                 class="form-control-file"
-                 formControlName="imageUrl"
-                 (change)="showPreview($event)"
-                 accept=".png,.jpg"
-                 [ngClass]="{
+          <input
+            type="file"
+            id="image"
+            class="form-control-file"
+            formControlName="imageUrl"
+            (change)="showPreview($event)"
+            accept=".png,.jpg"
+            [ngClass]="{
                           'has-danger': recipeForm.controls.imageUrl.invalid && recipeForm.controls.imageUrl.touched,
-                          'has-success': recipeForm.controls.imageUrl.valid && recipeForm.controls.imageUrl.touched }">
+                          'has-success': recipeForm.controls.imageUrl.valid && recipeForm.controls.imageUrl.touched }" />
 
-          <div class="error"
-               *ngIf="recipeForm.controls.imageUrl.invalid && (recipeForm.controls.imageUrl.dirty || recipeForm.controls.imageUrl.touched)">
+          <div
+            class="error"
+            *ngIf="recipeForm.controls.imageUrl.invalid && (recipeForm.controls.imageUrl.dirty || recipeForm.controls.imageUrl.touched)">
             <p *ngIf="recipeForm.controls.imageUrl.errors.required">Zdjęcie musi być dodane</p>
             <p *ngIf="!this.valid">Zdjęcie musi być w formacie .jpg lub .png</p>
           </div>
-
         </div>
       </div>
       <div class="col-md-6 col-sm-12" *ngIf="url.length != 0">
-        <img class="img-fluid image-recipe" alt="Zdjęcie przepisu" [src]="url" >
+        <img class="img-fluid image-recipe" alt="Zdjęcie przepisu" [src]="url" />
       </div>
     </div>
 
@@ -86,16 +85,15 @@
             formControlName="nameRecipe"
             [ngClass]="{
                   'has-danger': recipeForm.controls.nameRecipe.invalid && recipeForm.controls.nameRecipe.touched,
-                  'has-success': recipeForm.controls.nameRecipe.valid && recipeForm.controls.nameRecipe.touched }"
-          />
+                  'has-success': recipeForm.controls.nameRecipe.valid && recipeForm.controls.nameRecipe.touched }" />
 
           <label for="nameRecipe">Nazwa przepisu *</label>
 
-          <div class="error"
-               *ngIf="recipeForm.controls.nameRecipe.invalid && (recipeForm.controls.nameRecipe.dirty || recipeForm.controls.nameRecipe.touched)">
+          <div
+            class="error"
+            *ngIf="recipeForm.controls.nameRecipe.invalid && (recipeForm.controls.nameRecipe.dirty || recipeForm.controls.nameRecipe.touched)">
             <p *ngIf="recipeForm.controls.nameRecipe.errors.required">Nazwa nie może być pusta</p>
           </div>
-
         </div>
       </div>
     </div>
@@ -103,7 +101,6 @@
     <div class="form-row">
       <div formArrayName="ingredients" *ngFor="let ingredient of getControls(); let i = index">
         <div class="form-row" [formGroupName]="i">
-
           <div class="col-md-2 col-sm-12">
             <div class="form-group has-float-label">
               <input
@@ -115,11 +112,13 @@
                 placeholder="1"
                 [ngClass]="{
                         'has-danger': ingredient.get('amount').invalid && ingredient.get('amount').touched,
-                        'has-success': ingredient.get('amount').valid && ingredient.get('amount').touched }">
+                        'has-success': ingredient.get('amount').valid && ingredient.get('amount').touched }" />
 
               <label attr.for="{{'amount' + i}}">Ilość</label>
 
-              <div class="error" *ngIf="ingredient.get('amount').invalid && ingredient.get('amount').touched">
+              <div
+                class="error"
+                *ngIf="ingredient.get('amount').invalid && ingredient.get('amount').touched">
                 <p *ngIf="ingredient.get('amount').errors.required">Pole nie może być puste</p>
                 <p *ngIf="ingredient.get('amount').errors.pattern">Niepoprawna wartość</p>
               </div>
@@ -152,26 +151,33 @@
                 formControlName="name"
                 [ngClass]="{
                         'has-danger': ingredient.get('name').invalid && ingredient.get('name').touched,
-                        'has-success': ingredient.get('name').valid && ingredient.get('name').touched }">
+                        'has-success': ingredient.get('name').valid && ingredient.get('name').touched }" />
 
               <label attr.for="{{'name' + i}}">Składnik</label>
 
-              <div class="error" *ngIf="ingredient.get('name').invalid && ingredient.get('name').touched">
+              <div
+                class="error"
+                *ngIf="ingredient.get('name').invalid && ingredient.get('name').touched">
                 <p>Pole nie może być puste</p>
               </div>
             </div>
           </div>
 
           <div class="col-md-1 col-sm-6 mt-2 p-1">
-            <button type="button" class="btn btn-sm btn-block btn-danger" [disabled]="i === 0"
-                    (click)="onDeleteIngredient(i)"><i class="fas fa-minus"></i>
+            <button
+              type="button"
+              class="btn btn-sm btn-block btn-danger"
+              [disabled]="i === 0"
+              (click)="onDeleteIngredient(i)">
+              <i class="fas fa-minus"></i>
             </button>
           </div>
 
           <div class="col-md-1 col-sm-6 mt-2 p-1">
-            <button type="button"
-                    class="btn btn-sm btn-block btn-success"
-                    (click)="onAddIngredient()">
+            <button
+              type="button"
+              class="btn btn-sm btn-block btn-success"
+              (click)="onAddIngredient()">
               <i class="fas fa-check"></i>
             </button>
           </div>
@@ -179,28 +185,27 @@
       </div>
     </div>
 
-
     <div class="form-row">
       <div class="col-md-12 col-sm-12 textarea">
         <div class="form-group has-float-label">
-                  <textarea
-                    style="resize: none"
-                    autosize
-                    id="recipe"
-                    class="form-control"
-                    placeholder="Sok pomarańczowy podgrzewamy ..."
-                    formControlName="recipe"
-                    [ngClass]="{
+          <textarea
+            style="resize: none"
+            autosize
+            id="recipe"
+            class="form-control"
+            placeholder="Sok pomarańczowy podgrzewamy ..."
+            formControlName="recipe"
+            [ngClass]="{
                     'has-danger': recipeForm.controls.recipe.invalid && recipeForm.controls.recipe.touched ,
                     'has-success': recipeForm.controls.recipe.valid && recipeForm.controls.recipe.touched }">
-                  </textarea>
+          </textarea>
           <label for="recipe">Przepis</label>
 
-          <div class="error"
-               *ngIf="recipeForm.controls.recipe.invalid && (recipeForm.controls.recipe.dirty || recipeForm.controls.recipe.touched)">
+          <div
+            class="error"
+            *ngIf="recipeForm.controls.recipe.invalid && (recipeForm.controls.recipe.dirty || recipeForm.controls.recipe.touched)">
             <p *ngIf="recipeForm.controls.recipe.errors.required">Przepis nie może być pusty</p>
           </div>
-
         </div>
       </div>
     </div>
@@ -211,8 +216,11 @@
       </div>
 
       <div class="col-sm-6 col-sm-push-6 col-xs-12">
-        <button type="submit" class="btn btn-main"
-                [ngClass]="recipeForm.valid ? 'animated shake' : 'btn btn-main'" [disabled]="!recipeForm.valid">
+        <button
+          type="submit"
+          class="btn btn-main"
+          [ngClass]="recipeForm.valid ? 'animated shake' : 'btn btn-main'"
+          [disabled]="!recipeForm.valid">
           Wyślij
         </button>
       </div>
