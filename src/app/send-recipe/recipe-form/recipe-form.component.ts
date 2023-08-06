@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormArray, FormControl, FormGroup, Validators} from '@angular/forms';
+import {UntypedFormArray, UntypedFormControl, UntypedFormGroup, Validators} from '@angular/forms';
 import {DataStorageService} from '../../data-storage.service';
 import {finalize} from 'rxjs/operators';
 import {formatDate} from '@angular/common';
@@ -15,17 +15,17 @@ export class RecipeFormComponent implements OnInit {
   url: any = '';
   valid = true;
 
-  recipeForm = new FormGroup({
-    username: new FormControl('', [Validators.required]),
-    email: new FormControl('', [Validators.required, Validators.email]),
-    nameRecipe: new FormControl('', [Validators.required]),
-    imageUrl: new FormControl('', [Validators.required]),
-    ingredients: new FormArray([new FormGroup({
-      name: new FormControl('', Validators.required),
-      amount: new FormControl('', [Validators.required, Validators.pattern(/^[1-9]+[0-9]*$/)]),
-      measure: new FormControl('sztuka', Validators.required),
+  recipeForm = new UntypedFormGroup({
+    username: new UntypedFormControl('', [Validators.required]),
+    email: new UntypedFormControl('', [Validators.required, Validators.email]),
+    nameRecipe: new UntypedFormControl('', [Validators.required]),
+    imageUrl: new UntypedFormControl('', [Validators.required]),
+    ingredients: new UntypedFormArray([new UntypedFormGroup({
+      name: new UntypedFormControl('', Validators.required),
+      amount: new UntypedFormControl('', [Validators.required, Validators.pattern(/^[1-9]+[0-9]*$/)]),
+      measure: new UntypedFormControl('sztuka', Validators.required),
     })]),
-    recipe: new FormControl('', Validators.required),
+    recipe: new UntypedFormControl('', Validators.required),
   });
 
   measures = ['g', 'dag', 'kg', 'sztuka', 'łyżeczka', 'łyżka', 'szklanka' ];
@@ -75,29 +75,29 @@ export class RecipeFormComponent implements OnInit {
 
 
   getControls() {
-    return (this.recipeForm.get('ingredients') as FormArray).controls;
+    return (this.recipeForm.get('ingredients') as UntypedFormArray).controls;
   }
 
   onAddIngredient() {
-    (this.recipeForm.get('ingredients') as FormArray).push(
-      new FormGroup({
-        name: new FormControl('', Validators.required),
-        amount: new FormControl('', [Validators.required, Validators.pattern(/^[1-9]+[0-9]*$/)]),
-        measure: new FormControl('sztuka', Validators.required)
+    (this.recipeForm.get('ingredients') as UntypedFormArray).push(
+      new UntypedFormGroup({
+        name: new UntypedFormControl('', Validators.required),
+        amount: new UntypedFormControl('', [Validators.required, Validators.pattern(/^[1-9]+[0-9]*$/)]),
+        measure: new UntypedFormControl('sztuka', Validators.required)
       })
     );
   }
 
   onDeleteIngredient(i: number) {
     if (i !== 0) {
-      (this.recipeForm.get('ingredients') as FormArray).removeAt(i);
+      (this.recipeForm.get('ingredients') as UntypedFormArray).removeAt(i);
     } else {
       return 0;
     }
   }
 
   onResetRecipe() {
-    const control = (this.recipeForm.controls.ingredients) as FormArray;
+    const control = (this.recipeForm.controls.ingredients) as UntypedFormArray;
     while (control.length > 1) {
       control.removeAt(0);
     }
