@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve -o",
     "build": "ng build && firebase deploy",
     "test": "ng test"
   },
@@ -24,6 +24,8 @@
     "ngx-wow": "2.0.1",
     "node-gyp": "8.1.0",
     "popper.js": "1.16.1",
+    "prettier": "2.8.6",
+    "prettier-plugin-organize-imports": "3.2.2",
     "rxjs": "6.6.3",
     "tslib": "1.14.1",
     "wowjs": "1.1.3",

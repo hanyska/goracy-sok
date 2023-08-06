@@ -1,16 +1,17 @@
 <div class="row text-center">
-  <div class="col-md-4 recipe-row"
-       *ngFor="let lastRecipe of lastRecipes?.slice().reverse()"
-       (click)="toggleShowDetailRecipe(lastRecipe)">
-      <figure class="product-container">
-        <img class="img-fluid w-100 recipe-image" alt="" [src]="lastRecipe.imageUrl">
-        <figcaption class="product-description">{{lastRecipe.nameRecipe | uppercase}}</figcaption>
-      </figure>
+  <div
+    class="col-md-4 recipe-row"
+    *ngFor="let lastRecipe of lastRecipes?.slice().reverse()"
+    (click)="toggleShowDetailRecipe(lastRecipe)">
+    <figure class="product-container">
+      <img class="img-fluid w-100 recipe-image" alt="" [src]="lastRecipe.imageUrl" />
+      <figcaption class="product-description">{{lastRecipe.nameRecipe | uppercase}}</figcaption>
+    </figure>
   </div>
 </div>
 
 <div class="row">
   <div class="col-md-12">
-    <app-last-recipes-detail [(recipe)]="detailRecipe"></app-last-recipes-detail>
-</div>
+    <gs-last-recipes-detail [(recipe)]="detailRecipe"></gs-last-recipes-detail>
+  </div>
 </div>

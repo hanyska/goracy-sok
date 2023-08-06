@@ -1,21 +1,20 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-header',
+  selector: 'gs-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+  styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent implements OnInit {
-
   scrollTo(id: string): void {
-    const el: HTMLElement|null = document.getElementById(id);
+    const el: HTMLElement | null = document.getElementById(id);
     if (el) {
-      setTimeout(() =>
-        el.scrollIntoView({behavior: 'smooth', block: 'center', inline: 'nearest'}), 0);
+      setTimeout(
+        () => el.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'nearest' }),
+        0
+      );
     }
   }
 
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }

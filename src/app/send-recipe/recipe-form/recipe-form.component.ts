@@ -6,7 +6,7 @@ import {formatDate} from '@angular/common';
 import { AngularFireStorage } from '@angular/fire/compat/storage';
 
 @Component({
-  selector: 'app-recipe-form',
+  selector: 'gs-recipe-form',
   templateUrl: './recipe-form.component.html',
   styleUrls: ['./recipe-form.component.css']
 })

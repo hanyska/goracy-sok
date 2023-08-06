@@ -1,15 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-send-recipe',
+  selector: 'gs-send-recipe',
   templateUrl: './send-recipe.component.html',
-  styleUrls: ['./send-recipe.component.css']
+  styleUrls: ['./send-recipe.component.css'],
 })
 export class SendRecipeComponent implements OnInit {
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }
