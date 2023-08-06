@@ -11,16 +11,16 @@ import { FooterComponent } from './footer/footer.component';
 import { WhyComponent } from './why/why.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
-import {AngularFireModule} from '@angular/fire';
-import {AngularFireStorageModule} from '@angular/fire/storage';
 import {environment} from '../environments/environment';
-import {AngularFireDatabaseModule} from '@angular/fire/database';
 import {LastRecipesModule} from './last-recipes/last-recipes.module';
 import {LastRecipeRoutingModule} from './last-recipes/last-recipe-routing.module';
 import {TextareaAutosizeModule} from 'ngx-textarea-autosize';
 import { SendRecipeComponent } from './send-recipe/send-recipe.component';
 import { RecipeFormComponent } from './send-recipe/recipe-form/recipe-form.component';
 import {ContactComponent} from './send-recipe/contact/contact.component';
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
+import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 
 @NgModule({
   declarations: [
