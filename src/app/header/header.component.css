@@ -2,7 +2,7 @@
   padding-top: 20%;
   padding-bottom: 20%;
   position: relative;
-  background-image: linear-gradient(rgba(255,255,255,0.2), rgba(255,255,255,0.2)), url("https://www.magazynvip.pl/wp-content/uploads/2017/12/Fotolia_57089950_S-750x423.jpg");
+  background-image: linear-gradient(rgba(255,255,255,0.2), rgba(255,255,255,0.2)), url("../../assets/img/tlo.jpg");
   background-size: cover;
   margin: 0;
 }
