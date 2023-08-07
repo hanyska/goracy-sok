@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "dist/goracy-sok",
+    "public": "public",
     "ignore": [
       "firebase.json",
       "**/.*",
