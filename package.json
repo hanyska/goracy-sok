@@ -1,18 +1,6 @@
 {
   "name": "goracy-sok",
   "version": "1.0.0",
-  "description": "Do you like orange juice? 🍹",
-  "main": "index.js",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/hanyska/goracy-sok.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/hanyska/goracy-sok/issues"
-  },
-  "homepage": "https://github.com/hanyska/goracy-sok#readme",
   "scripts": {
     "ng": "ng",
     "start": "ng serve -o",
