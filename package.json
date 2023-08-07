@@ -19,7 +19,7 @@
     "@angular/platform-browser-dynamic": "16.1.8",
     "@angular/router": "16.1.8",
     "bootstrap": "4.5.3",
-    "firebase": "10.1.0",
+    "firebase": "9.9.1",
     "jquery": "3.5.1",
     "ngx-wow": "2.0.1",
     "node-gyp": "8.1.0",

@@ -7,6 +7,6 @@ export const environment = {
     projectId: 'goracy-sok',
     storageBucket: 'goracy-sok.appspot.com',
     messagingSenderId: '743119242924',
-    appId: '1:743119242924:web:a0ebd2fed67d8141'
-  }
+    appId: '1:743119242924:web:a0ebd2fed67d8141',
+  },
 };
