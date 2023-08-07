@@ -1,6 +1,6 @@
 {
   "name": "goracy-sok",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Do you like orange juice? 🍹",
   "main": "index.js",
   "repository": {
@@ -31,7 +31,7 @@
     "@angular/platform-browser-dynamic": "16.1.8",
     "@angular/router": "16.1.8",
     "bootstrap": "4.5.3",
-    "firebase": "^9.23.0",
+    "firebase": "10.1.0",
     "jquery": "3.5.1",
     "ngx-wow": "2.0.1",
     "node-gyp": "8.1.0",
