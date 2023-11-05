@@ -6,19 +6,21 @@ html {
   scroll-behavior: smooth;
 }
 
-h3.heading
-{
+$gs-white: #fff;
+$gs-orange: #f1802d;
+$gs-orange-dark: #dc660f;
+
+h3.heading {
   font-size: 32px;
   font-weight: 700;
   text-transform: uppercase;
   margin-bottom: 30px;
 }
 
-.heading-underline
-{
+.heading-underline {
   width: 60px;
   height: 5px;
-  background-color: #f1802d;
+  background-color: $gs-orange;
   border-radius: 5px;
   margin: 0 auto 32px;
 }
@@ -29,14 +31,14 @@ h3.heading
   font-size: 21px;
   text-transform: uppercase;
   margin: 22px;
-  border: medium #f1802d;
-  background-color: #f1802d;
-  color: white;
-}
+  border: medium $gs-orange;
+  background-color: $gs-orange;
+  color: $gs-white;
 
-.btn-secondary:hover,
-.btn-secondary:focus {
-  border-color: #DC660F;
-  background-color: #DC660F;
-  color: white;
+  &:hover,
+  &:focus {
+    border-color: $gs-orange-dark;
+    background-color: $gs-orange-dark;
+    color: $gs-white;
+  }
 }
