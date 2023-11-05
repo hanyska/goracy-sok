@@ -13,9 +13,6 @@ import { Component } from '@angular/core';
   `,
   styles: [
     `
-      .break-word {
-        word-wrap: break-word;
-      }
       .contact {
         height: 100%;
         text-align: center;
@@ -23,16 +20,14 @@ import { Component } from '@angular/core';
         color: #fff;
         padding: 50px 10px;
       }
-      .contact .detail {
-        margin-bottom: 30px;
+      .detail {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
       }
-      .contact .detail p {
-        margin: 0;
-        padding-left: 18px;
-        font-size: 16px;
-        font-weight: 200;
-        color: #fff;
-        text-decoration: none;
+      .break-word {
+        word-wrap: break-word;
       }
     `,
   ],

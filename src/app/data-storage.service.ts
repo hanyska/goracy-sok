@@ -1,16 +1,18 @@
 import { Injectable } from '@angular/core';
-import {Observable} from 'rxjs';
-import {Recipe} from './recipe.model';
+import { Observable } from 'rxjs';
+import { Recipe } from './recipe.model';
 import { AngularFireDatabase, AngularFireList } from '@angular/fire/compat/database';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class DataStorageService {
   recipeRef: AngularFireList<Recipe[]>;
 
   constructor(private firebase: AngularFireDatabase) {
-    this.recipeRef = firebase.list<Recipe[]>('recipes', ref => ref.orderByChild('date').limitToLast(3));
+    this.recipeRef = firebase.list<Recipe[]>('recipes', ref =>
+      ref.orderByChild('date').limitToLast(3)
+    );
   }
 
   fetchRecipe() {
@@ -24,5 +26,4 @@ export class DataStorageService {
   storeRecipe(recipes: Recipe[]) {
     this.recipeRef.push(recipes);
   }
-
 }

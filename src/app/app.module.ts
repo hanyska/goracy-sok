@@ -1,7 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FanpageComponent } from './fanpage/fanpage.component';
@@ -13,13 +12,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { environment } from '../environments/environment';
 import { LastRecipesModule } from './last-recipes/last-recipes.module';
-import { LastRecipeRoutingModule } from './last-recipes/last-recipe-routing.module';
 import { SendRecipeComponent } from './send-recipe/send-recipe.component';
 import { RecipeFormComponent } from './send-recipe/recipe-form/recipe-form.component';
 import { ContactComponent } from './send-recipe/contact/contact.component';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
+import { AppRoutingModule } from './app.routes';
+import { LastRecipeRoutingModule } from './last-recipes/last-recipe.routes';
 
 @NgModule({
   declarations: [
