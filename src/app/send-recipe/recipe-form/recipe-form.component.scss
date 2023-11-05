@@ -48,23 +48,25 @@
   box-shadow: none;
 }
 
-.has-float-label.select-label label{
-  top:.9em;
+.has-float-label.select-label label {
+  top: 0.9em;
 }
 
-.has-float-label input:placeholder-shown:not(:focus)+* {
+.has-float-label input:placeholder-shown:not(:focus) + * {
   font-size: 120%;
   opacity: 0.5;
-  top: .25em;
+  top: 0.25em;
 }
 
-.has-float-label input:focus, .has-float-label select:focus, .has-float-label textarea:focus {
+.has-float-label input:focus,
+.has-float-label select:focus,
+.has-float-label textarea:focus {
   outline: 0;
-  border-color: #f1802d
+  border-color: #f1802d;
 }
 
 .form-control-file {
-  color: #4C535A
+  color: #4c535a;
 }
 
 select {
@@ -78,14 +80,14 @@ select {
   margin: 15px 10px;
 }
 
-input[type="file"]::-webkit-file-upload-button {
+input[type='file']::-webkit-file-upload-button {
   background-color: transparent;
   border: 2px solid transparent;
   border-radius: 10px;
   color: #f1802d;
 }
 
-input[type="file"]::-webkit-file-upload-button:hover {
+input[type='file']::-webkit-file-upload-button:hover {
   border-radius: 10px;
   border: 2px solid transparent;
   background-color: #f1802d;

@@ -1,14 +1,14 @@
+import { formatDate } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import {UntypedFormArray, UntypedFormControl, UntypedFormGroup, Validators} from '@angular/forms';
-import {DataStorageService} from '../../data-storage.service';
-import {finalize} from 'rxjs/operators';
-import {formatDate} from '@angular/common';
 import { AngularFireStorage } from '@angular/fire/compat/storage';
+import { UntypedFormArray, UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
+import { finalize } from 'rxjs/operators';
+import { DataStorageService } from '../../data-storage.service';
 
 @Component({
-  selector: 'app-recipe-form',
+  selector: 'gs-recipe-form',
   templateUrl: './recipe-form.component.html',
-  styleUrls: ['./recipe-form.component.css']
+  styleUrls: ['./recipe-form.component.scss'],
 })
 export class RecipeFormComponent implements OnInit {
   selectedImage: any = null;
@@ -20,21 +20,24 @@ export class RecipeFormComponent implements OnInit {
     email: new UntypedFormControl('', [Validators.required, Validators.email]),
     nameRecipe: new UntypedFormControl('', [Validators.required]),
     imageUrl: new UntypedFormControl('', [Validators.required]),
-    ingredients: new UntypedFormArray([new UntypedFormGroup({
-      name: new UntypedFormControl('', Validators.required),
-      amount: new UntypedFormControl('', [Validators.required, Validators.pattern(/^[1-9]+[0-9]*$/)]),
-      measure: new UntypedFormControl('sztuka', Validators.required),
-    })]),
+    ingredients: new UntypedFormArray([
+      new UntypedFormGroup({
+        name: new UntypedFormControl('', Validators.required),
+        amount: new UntypedFormControl('', [
+          Validators.required,
+          Validators.pattern(/^[1-9]+[0-9]*$/),
+        ]),
+        measure: new UntypedFormControl('sztuka', Validators.required),
+      }),
+    ]),
     recipe: new UntypedFormControl('', Validators.required),
   });
 
-  measures = ['g', 'dag', 'kg', 'sztuka', 'łyżeczka', 'łyżka', 'szklanka' ];
+  measures = ['g', 'dag', 'kg', 'sztuka', 'łyżeczka', 'łyżka', 'szklanka'];
 
-  constructor(private recipeService: DataStorageService,
-              private storage: AngularFireStorage) { }
+  constructor(private recipeService: DataStorageService, private storage: AngularFireStorage) {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   showPreview(event: any) {
     if (event.target.files && event.target.files[0]) {
@@ -42,7 +45,7 @@ export class RecipeFormComponent implements OnInit {
       const files = event.target.files;
       reader.readAsDataURL(files[0]);
 
-      reader.onload = (img) => {
+      reader.onload = img => {
         this.url = (img.target as FileReader).result;
       };
       this.selectedImage = files[0];
@@ -55,13 +58,17 @@ export class RecipeFormComponent implements OnInit {
     if (this.recipeForm.valid) {
       formValue.date = formatDate(new Date(), 'yyyy/MM/dd HH:mm:ss', 'en');
 
-      const filePath = `${this.selectedImage.name.split('.').slice(0, -1).join('.')}_  ${new Date().getTime()}`;
+      const filePath = `${this.selectedImage.name
+        .split('.')
+        .slice(0, -1)
+        .join('.')}_  ${new Date().getTime()}`;
       const fileRef = this.storage.ref(filePath);
-      this.storage.upload(filePath, this.selectedImage)
+      this.storage
+        .upload(filePath, this.selectedImage)
         .snapshotChanges()
         .pipe(
           finalize(() => {
-            fileRef.getDownloadURL().subscribe((url) => {
+            fileRef.getDownloadURL().subscribe(url => {
               formValue.imageUrl = url;
               this.recipeService.storeRecipe(formValue);
               this.onResetRecipe();
@@ -72,8 +79,6 @@ export class RecipeFormComponent implements OnInit {
     }
   }
 
-
-
   getControls() {
     return (this.recipeForm.get('ingredients') as UntypedFormArray).controls;
   }
@@ -82,8 +87,11 @@ export class RecipeFormComponent implements OnInit {
     (this.recipeForm.get('ingredients') as UntypedFormArray).push(
       new UntypedFormGroup({
         name: new UntypedFormControl('', Validators.required),
-        amount: new UntypedFormControl('', [Validators.required, Validators.pattern(/^[1-9]+[0-9]*$/)]),
-        measure: new UntypedFormControl('sztuka', Validators.required)
+        amount: new UntypedFormControl('', [
+          Validators.required,
+          Validators.pattern(/^[1-9]+[0-9]*$/),
+        ]),
+        measure: new UntypedFormControl('sztuka', Validators.required),
       })
     );
   }
@@ -97,7 +105,7 @@ export class RecipeFormComponent implements OnInit {
   }
 
   onResetRecipe() {
-    const control = (this.recipeForm.controls.ingredients) as UntypedFormArray;
+    const control = this.recipeForm.controls.ingredients as UntypedFormArray;
     while (control.length > 1) {
       control.removeAt(0);
     }
@@ -105,5 +113,4 @@ export class RecipeFormComponent implements OnInit {
     this.selectedImage = null;
     this.recipeForm.reset();
   }
-
 }

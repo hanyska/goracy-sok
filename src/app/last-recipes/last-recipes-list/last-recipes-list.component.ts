@@ -1,39 +1,35 @@
-import {Component, OnInit} from '@angular/core';
-import {DataStorageService} from '../../data-storage.service';
-import {map} from 'rxjs/operators';
-import {Recipe} from '../../recipe.model';
+import { Component, OnInit } from '@angular/core';
+import { map } from 'rxjs/operators';
+import { DataStorageService } from '../../data-storage.service';
+import { Recipe } from '../../recipe.model';
 
 @Component({
-  selector: 'app-last-recipes-list',
+  selector: 'gs-last-recipes-list',
   templateUrl: './last-recipes-list.component.html',
-  styleUrls: ['./last-recipes-list.component.css']
+  styleUrls: ['./last-recipes-list.component.scss'],
 })
 export class LastRecipesListComponent implements OnInit {
-  lastRecipes;
-  detailRecipe: Recipe;
+  public lastRecipes: any[];
+  public detailRecipe: Recipe;
 
   constructor(private recipeService: DataStorageService) {}
 
-  ngOnInit() {
+  public ngOnInit() {
     this.getRecipes();
   }
 
-  getRecipes() {
-    this.recipeService.fetchRecipe()
+  public getRecipes() {
+    this.recipeService
+      .fetchRecipe()
       .snapshotChanges()
-      .pipe(
-          map(list => {
-          return list.map(item => {
-            return {key: item.payload.key , ...item.payload.val()};
-          });
-        }))
-      .subscribe( value => {
-        this.lastRecipes = value;
+      .pipe(map(list => list.map(item => ({ key: item.payload.key, ...item.payload.val() }))))
+      .subscribe(value => {
+        this.lastRecipes = value?.slice().reverse();
       });
   }
 
-  toggleShowDetailRecipe( recipe ) {
-      this.detailRecipe = recipe;
-      window.scrollTo({ left: 0, top: 2500, behavior: 'smooth' });
+  public toggleShowDetailRecipe(recipe: Recipe) {
+    this.detailRecipe = recipe;
+    window.scrollTo({ left: 0, top: 2500, behavior: 'smooth' });
   }
 }
